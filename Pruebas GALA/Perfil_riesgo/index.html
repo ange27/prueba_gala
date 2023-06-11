@@ -1,0 +1,136 @@
+<html>
+<head>
+    <title>Cálculo de riesgo de perfil</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+		/>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
+</head>
+<script>
+    function ChangeGenero() {
+        var genero = document.getElementById("genero").value;
+        if (genero == 'F') {
+            document.getElementById('lbl_apellido_casada').style.display = 'block';
+            document.getElementById('apellido_casada').style.display = 'block';
+        } else {
+            document.getElementById('lbl_apellido_casada').style.display = 'none';
+            document.getElementById('apellido_casada').style.display = 'none';
+        }
+    }
+</script>
+<body>
+    <header class="bg-primary bg-gradient pl-5 pt-2 pb-2" style="color:white">
+        <h3>Cálculo de riesgo de perfil</h3>
+        por Angélica De León
+    </header>
+    <main class="container-lg mt-4">
+        <form id="form-gala" action="controller/calcular_riesgo.php" method="POST">
+            <div class="row">
+                <div class="col-6">
+                    <label for="genero" class="form-label">Género</label>
+                    <Select id="genero" name="genero" class="form-control" onchange="return ChangeGenero()">
+                        <option></option>
+                        <option value="M">Masculino</option>
+                        <option value="F">Femenino</option>
+                    </Select>
+                </div>
+            </div>
+            <div class="border mt-2 p-3 rounded-3">
+                <div class="row">
+                    <div class="col">
+                        <label for="primer_nombre" class="form-label">Primer nombre</label> 
+                        <input type="text" id="primer_nombre" name="primer_nombre" class="form-control">
+                    </div>
+                    <div class="col">
+                        <label for="segundo_nombre" class="form-label">Segundo nombre</label>
+                        <input type="text" id="segundo_nombre" name="segundo_nombre" class="form-control">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label for="primer_apellido" class="form-label">Primer apellido</label>
+                        <input type="text" id="primer_apellido" name="primer_apellido" class="form-control">
+                    </div>
+                    <div class="col">
+                        <label for="segundo_apellido" class="form-label">Segundo apellido</label>
+                        <input type="text" id="segundo_apellido" name="segundo_apellido" class="form-control">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <label for="apellido_casada" id="lbl_apellido_casada" class="form-label" style="display: none;">Apellido de Casada</label>
+                        <input type="text" id="apellido_casada" name="apellido_casada" class="form-control" style="display: none;">
+                    </div>
+                </div>
+            </div>
+            <div class="border mt-2 mb-2 p-3 rounded-3">
+                <div class="row">
+                    <div class="col">
+                        <label for="pais_nacimiento" class="form-label">País de nacimiento</label>
+                            <Select id="pais_nacimiento" name="pais_nacimiento" class="form-control">
+                                <option></option>
+                                <option value="1">Panamá</option>
+                                <option value="2">Otro país</option>
+                            </Select>
+                    </div>
+                    <div class="col">
+                        <label for="pais_residencia" class="form-label">País de residencia</label>
+                        <Select id="pais_residencia" name="pais_residencia" class="form-control">
+                            <option></option>
+                            <option value="1">Panamá</option>
+                            <option value="2">Otro país</option>
+                        </Select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label for="profesion" class="form-label">Profesión</label>
+                        <Select id="profesion" name="profesion" class="form-control">
+                            <option></option>
+                            <option value="1">Abogado</option>
+                            <option value="2">Ingeniero</option>
+                            <option value="3">Médico</option>
+                            <option value="4">Contador</option>
+                            <option value="5">Otras</option>
+                        </Select>
+                    </div>
+                    <div class="col">
+                        <label for="nivel_ingreso" class="form-label">Nivel de ingresos</label>
+                        <Select id="nivel_ingreso" name="nivel_ingreso" class="form-control">
+                            <option></option>
+                            <option value="1">Menos de 20k anual</option>
+                            <option value="2">Entre 20k y 75k anual</option>
+                            <option value="3">Mayor de 75k</option>
+                        </Select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label for="edad" class="form-label">Edad</label>
+                        <Select id="edad" name="edad" class="form-control">
+                            <option></option>
+                            <option value="1">Menos de 25</option>
+                            <option value="2">Entre 25 y 50</option>
+                            <option value="3">Mayor de 55</option>
+                        </Select>
+                    </div>
+                    <div class="col">
+                        <label for="PEP" class="form-label">PEP</label>
+                        <Select id="PEP" name="PEP" class="form-control">
+                            <option></option>
+                            <option value="0">Sí</option>
+                            <option value="1">No</option>
+                            <option value="2">NO</option>
+                        </Select>
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary m-2">Calcular</button>
+        </form>
+    </main>
+</body>
+</html>
